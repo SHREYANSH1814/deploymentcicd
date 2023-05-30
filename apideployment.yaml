@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backendapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backendpods
+  template:
+    metadata:
+      labels:
+        app: backendpods
+    spec:
+      containers:
+        - name: backend
+          image:  shreyansh1814/development-api:latest
+          ports:
+            - containerPort: 30001
